@@ -1,6 +1,5 @@
 <?php
 
-
 function get_fibonacci_serie(int $n): array {
 	$fibonacci_serie = array();
 	$fibonacci_serie[0] = 0;
@@ -16,12 +15,18 @@ function get_fibonacci_serie(int $n): array {
 }
 
 function printFibonacciSerie(array $serie) {
-	var_dump($serie);
+	$con = 0;
+	while($con < count($serie)) {
+		echo $serie[$con];
+		if($con < (count($serie)-1)) echo ",";
+		++$con;
+	}
+	echo PHP_EOL;
 }
 
 
-$n = intval(readline("What Fibonacci series do you want to know?"));
-$serie = get_fibonacci_serie($n);
-printFibonacciSerie($serie);
-
+while($n = intval(readline("What Fibonacci series do you want to know?"))) {
+	$serie = get_fibonacci_serie($n);
+	printFibonacciSerie($serie);
+}
 ?>
